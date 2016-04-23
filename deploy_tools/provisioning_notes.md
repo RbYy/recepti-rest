@@ -34,3 +34,7 @@ Assume we have a user account at /home/username
          ├── source
          ├── static
          └── virtualenv
+
+#fab command:
+	eg, $ fab deploy:site=dontspeak.servebeer.com -H robert@pi
+
