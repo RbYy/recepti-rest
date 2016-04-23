@@ -5,7 +5,7 @@ import random
 from getpass import getpass
 
 
-REPO_URL = 'https://github.com/rbyy/tdd.git'
+REPO_URL = 'https://github.com/rbyy/recepti-rest.git'
 
 PG_DB_SETTINGS = """
 DATABASES = {
@@ -57,14 +57,14 @@ def _get_latest_source(source_folder):
 
 
 def _update_settings(source_folder, site_name, PG_DB_SETTINGS):
-    settings_path = source_folder + '/gettingstarted/settings.py'
+    settings_path = source_folder + '/svincnik/settings.py'
     requirements_path = source_folder + '/requirements.txt'
     sed(settings_path, "DEBUG = True", "DEBUG = False")
     sed(settings_path,
         'ALLOWED_HOSTS =.+$',
         'ALLOWED_HOSTS = ["%s"]' % (site_name,)
         )
-    secret_key_file = source_folder + '/gettingstarted/secret_key.py'
+    secret_key_file = source_folder + '/svincnik/secret_key.py'
     if not exists(secret_key_file):
         chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
         key = ''.join(random.SystemRandom().choice(chars) for _ in range(50))
