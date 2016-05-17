@@ -124,3 +124,7 @@ STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(PROJECT_ROOT)), 'stat
 print('static root', STATIC_ROOT)
 
 STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',)
+}
